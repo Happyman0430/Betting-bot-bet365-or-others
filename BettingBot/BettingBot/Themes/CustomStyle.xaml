@@ -1,0 +1,505 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+                    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+                    xmlns:converters="http://metro.mahapps.com/winfx/xaml/shared"
+                    xmlns:controls="clr-namespace:BettingBot.Source.Controls">
+
+    <!--#region Window-->
+
+    <SolidColorBrush x:Key="MouseOverBlueBrush" Color="#FF000096" />
+    <SolidColorBrush x:Key="DefaultBlueBrush" Color="#FF000040" />
+    <SolidColorBrush x:Key="DefaultWindowBrush" Color="#FF1E1E1E" />
+
+    <Style x:Key="MyCleanWindowStyle" 
+           TargetType="{x:Type mah:MetroWindow}" 
+           BasedOn="{StaticResource CleanWindowStyleKey}">
+        <Setter Property="TitleCharacterCasing" Value="Normal"/>
+        <Setter Property="IconEdgeMode" Value="Aliased"/>
+        <Setter Property="TitleAlignment" Value="-10,0,0,0"/>
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="WindowTitleBrush" Value="{StaticResource DefaultBlueBrush}"></Setter>
+    </Style>
+
+    <!--#endregion-->
+
+    <!--#region DataGrid-->
+
+    <LinearGradientBrush x:Key="HeaderRowBrush" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#FF000096" Offset="0.0" />
+        <GradientStop Color="Black" Offset="1.0" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="RowBrush" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#FF000040" Offset="0.0" />
+        <GradientStop Color="Black" Offset="1.0" />
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="BorderBrush" Color="#FF000096" />
+
+    <Style BasedOn="{StaticResource MetroDataGridColumnHeader}" 
+           TargetType="{x:Type DataGridColumnHeader}">
+        <Setter Property="mah:ControlsHelper.ContentCharacterCasing" Value="Normal"/>
+        <Setter Property="Background" Value="{StaticResource HeaderRowBrush}" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="10,0,4,0" />
+        <Setter Property="BorderThickness" Value="0,0,0,0" />
+        <Setter Property="Height" Value="25" />
+        <Setter Property="MaxHeight" Value="25" />
+    </Style>
+
+    <Style BasedOn="{StaticResource MetroDataGrid}" 
+           TargetType="{x:Type DataGrid}">
+        <Setter Property="mah:ControlsHelper.ContentCharacterCasing" Value="Normal"/>
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="RowHeight" Value="25" />
+        <Setter Property="RowBackground" Value="{StaticResource RowBrush}" />
+    </Style>
+
+    <Style x:Key="CenterAlignedCellStyle" BasedOn="{StaticResource MetroDataGridCell}" 
+           TargetType="{x:Type DataGridCell}">
+        <Style.Setters>
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="TextBlock.TextAlignment" Value="Center" />
+            <Setter Property="BorderThickness" Value="0,0,1,0" />
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+            <Setter Property="Padding" Value="0,0,0,0" />
+            <Setter Property="Margin" Value="0,0,0,0" />
+        </Style.Setters>
+    </Style>
+
+    <Style BasedOn="{StaticResource CenterAlignedCellStyle}" 
+           TargetType="{x:Type DataGridCell}">
+    </Style>
+
+    <Style x:Key="LeftAlignedCellStyle" BasedOn="{StaticResource CenterAlignedCellStyle}" 
+           TargetType="{x:Type DataGridCell}">
+        <Style.Setters>
+            <Setter Property="TextBlock.TextAlignment" Value="Left" />
+            <Setter Property="Padding" Value="5,0,0,0" />
+        </Style.Setters>
+    </Style>
+
+    <Style x:Key="RightAlignedCellStyle" BasedOn="{StaticResource CenterAlignedCellStyle}" 
+           TargetType="{x:Type DataGridCell}">
+        <Style.Setters>
+            <Setter Property="TextBlock.TextAlignment" Value="Right" />
+            <Setter Property="Padding" Value="0,0,5,0" />
+        </Style.Setters>
+    </Style>
+
+    <!--#endregion-->
+
+    <!--#region Label-->
+
+    <Style TargetType="{x:Type Label}" BasedOn="{StaticResource MetroLabel}">
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+
+    <!--#endregion-->
+
+    <!--#region Contextmenu (Default Unused)-->
+
+    <ContextMenu x:Key="emptyContextMenu" Width="0" Height="0" Visibility="Collapsed">
+    </ContextMenu>
+
+    <!--#endregion-->
+
+    <!--#region TextBox-->
+
+    <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource MetroTextBox}">
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="ContextMenu" Value="{StaticResource emptyContextMenu}" />
+    </Style>
+
+    <!--#endregion-->
+
+    <!--#region RadioButton-->
+
+    <Style TargetType="{x:Type RadioButton}" BasedOn="{StaticResource MetroRadioButton}">
+        <Setter Property="Padding" Value="6,0,0,0" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="MinHeight" Value="0" />
+    </Style>
+
+    <!--#endregion-->
+
+    <!--#region CheckBox-->
+
+    <Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource MetroCheckBox}">
+        <Setter Property="Padding" Value="6,0,0,0" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="MinHeight" Value="0" />
+    </Style>
+
+    <!--#endregion-->
+
+    <!--#region Button-->
+
+    <Style x:Key="MySquareButtonStyle" BasedOn="{StaticResource SquareButtonStyle}" TargetType="{x:Type ButtonBase}">
+        <Setter Property="mah:ControlsHelper.ContentCharacterCasing" Value="Normal" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+
+    <Style x:Key="MyAccentedSquareButtonStyle" BasedOn="{StaticResource AccentedSquareButtonStyle}" TargetType="{x:Type ButtonBase}">
+        <Setter Property="mah:ControlsHelper.ContentCharacterCasing" Value="Normal" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+
+    <Style x:Key="MyClearButtonStyle" BasedOn="{StaticResource ChromelessButtonStyle}" TargetType="{x:Type ButtonBase}">
+        <Setter Property="mah:ControlsHelper.ContentCharacterCasing" Value="Normal" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Width" Value="30" />
+        <Setter Property="Height" Value="30" />
+    </Style>
+
+    <!--#endregion-->
+
+    <!--#region NumericUpDown-->
+
+    <Style TargetType="{x:Type mah:NumericUpDown}">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="HideUpDownButtons" Value="True" />
+        <Setter Property="ContextMenu" Value="{StaticResource emptyContextMenu}" />
+    </Style>
+
+    <!--#endregion-->
+
+    <!--#region ComboBox-->
+
+    <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MetroComboBox}">
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+
+    <!--#endregion-->
+
+    <!--#region ListBox-->
+
+    <Style TargetType="{x:Type ListBox}" BasedOn="{StaticResource MetroListBox}">
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+
+    <!--#endregion-->
+
+    <!--#region DatePicker-->
+
+    <Style TargetType="{x:Type DatePicker}" BasedOn="{StaticResource MetroDatePicker}">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        <Setter Property="ContextMenu" Value="{StaticResource emptyContextMenu}" />
+    </Style>
+
+    <Style TargetType="{x:Type DatePickerTextBox}" BasedOn="{StaticResource MetroDatePickerTextBox}">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        <Setter Property="ContextMenu" Value="{StaticResource emptyContextMenu}" />
+    </Style>
+
+    <!--#endregion-->
+
+    <!--#region TabItem-->
+
+    <Style TargetType="{x:Type mah:MetroTabItem}">
+        <Setter
+            Property="Template">
+            <Setter.Value>
+                <ControlTemplate
+                    TargetType="{x:Type mah:MetroTabItem}">
+                    <Border
+                        x:Name="Spacer"
+                        Width="Auto"
+                        Height="Auto"
+                        Padding="0 0 0 0"
+                        Margin="0 0 0 0"
+                        BorderBrush="Transparent"
+                        BorderThickness="0">
+                        <Border
+                            x:Name="Border"
+                            BorderThickness="0,0,0,0"
+                            CornerRadius="0,0,0,0"
+                            Cursor="Hand"
+                            VerticalAlignment="Top">
+                            <ContentPresenter
+                                x:Name="ContentSite"
+                                TextElement.FontSize="14pt"
+                                TextElement.FontFamily="Arial"
+                                TextElement.Foreground="White"
+                                VerticalAlignment="Top"
+                                HorizontalAlignment="Left"
+                                ContentSource="Header"
+                                Margin="0,0,0,0"
+                                Width="Auto"
+                                Height="Auto" 
+                                Cursor="Arrow" />
+                        </Border>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--#endregion-->
+
+    <!--#region Tile-->
+
+    <Style x:Key="BaseTile" TargetType="{x:Type mah:Tile}">
+        <Setter Property="Background" Value="{DynamicResource AccentColorBrush}" />
+        <Setter Property="mah:ControlsHelper.MouseOverBorderBrush" Value="{x:Null}" />
+        <!-- xaml serializer nie poradzi sobie z helperem -->
+        <Setter Property="CountFontSize" Value="28" />
+        <Setter Property="Foreground" Value="{DynamicResource IdealForegroundColorBrush}" />
+        <Setter Property="Margin" Value="0,0,5,5" />
+        <Setter Property="RenderTransformOrigin" Value="0.5,0.5" />
+        <Setter Property="TitleFontSize" Value="16" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Width" Value="50" />
+        <Setter Property="Padding" Value="0"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="mah:Tile">
+                    <Grid>
+                        <Border x:Name="PART_Border"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                            <Grid>
+                                <StackPanel HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                            Orientation="Horizontal">
+                                    <ContentPresenter RecognizesAccessKey="True" />
+                                    <TextBlock VerticalAlignment="Center"
+                                               FontSize="{TemplateBinding CountFontSize}"
+                                               Text="{TemplateBinding Count}" />
+                                </StackPanel>
+                                <Label HorizontalAlignment="{TemplateBinding HorizontalTitleAlignment}"
+                                       VerticalAlignment="{TemplateBinding VerticalTitleAlignment}"
+                                       Foreground="{TemplateBinding Foreground}">
+                                    <AccessText Margin="3"
+                                                FontSize="{TemplateBinding TitleFontSize}"
+                                                Foreground="{TemplateBinding Foreground}"
+                                                Text="{TemplateBinding Title}"
+                                                TextWrapping="Wrap" />
+                                </Label>
+                            </Grid>
+                        </Border>
+                        <Border x:Name="PART_HoverBorder"
+                                BorderBrush="{TemplateBinding mah:ControlsHelper.MouseOverBorderBrush}"
+                                BorderThickness="2"
+                                Opacity="0"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=(mah:ControlsHelper.MouseOverBorderBrush), Mode=OneWay, Converter={x:Static converters:IsNullConverter.Instance}}" Value="False" />
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver, Mode=OneWay}" Value="True" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter TargetName="PART_HoverBorder" Property="Opacity" Value="0.6" />
+                        </MultiDataTrigger>
+                        <Trigger Property="Button.IsPressed" Value="True">
+                            <Setter Property="RenderTransform">
+                                <Setter.Value>
+                                    <ScaleTransform CenterX="0.5"
+                                                    CenterY="0.5"
+                                                    ScaleX="0.98"
+                                                    ScaleY="0.98" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.3" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="BaseTileIcon" TargetType="iconPacks:PackIconModern">
+        <Setter Property="Width" Value="25" />
+        <Setter Property="Height" Value="25" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Margin" Value="12.5,12.5,0,0" />
+    </Style>
+
+    <Style x:Key="BaseEntypoTileIcon" TargetType="iconPacks:PackIconEntypo">
+        <Setter Property="Width" Value="25" />
+        <Setter Property="Height" Value="25" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Margin" Value="12.5,12.5,0,0" />
+    </Style>
+
+    <Style x:Key="BaseTileTextBlock" TargetType="TextBlock">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Margin" Value="50,0,0,0" />
+    </Style>
+
+    <!-- Main Menu Tile -->
+
+    <SolidColorBrush x:Key="MouseOverMainMenuTileBrush" Color="#FF000096" />
+    <SolidColorBrush x:Key="DefaultMainMenuTileBrush" Color="#FF000040" />
+
+    <Style x:Key="MainMenuTile" TargetType="mah:Tile" BasedOn="{StaticResource BaseTile}">
+        <Setter Property="Background" Value="{StaticResource DefaultMainMenuTileBrush}" />
+    </Style>
+    <Style x:Key="MainMenuIcon" TargetType="iconPacks:PackIconModern" BasedOn="{StaticResource BaseTileIcon}" />
+    <Style x:Key="MainMenuTextblock" TargetType="TextBlock" BasedOn="{StaticResource BaseTileTextBlock}" />
+
+    <!-- Main Menu Resize Tile -->
+
+    <SolidColorBrush x:Key="MouseOverMainMenuResizeTileBrush" Color="DarkRed" />
+    <SolidColorBrush x:Key="DefaultMainMenuResizeTileBrush" Color="#FF1E1E1E" />
+
+    <Style x:Key="MainMenuResizeTile" TargetType="mah:Tile" BasedOn="{StaticResource BaseTile}">
+        <Setter Property="Margin" Value="0,0,0,0"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Background" Value="{StaticResource DefaultMainMenuResizeTileBrush}" />
+        <Setter Property="VerticalContentAlignment" Value="Top"/>
+    </Style>
+
+    <Style x:Key="MainMenuResizeIcon" TargetType="iconPacks:PackIconModern" BasedOn="{StaticResource BaseTileIcon}">
+        <Setter Property="Width" Value="15" />
+        <Setter Property="Height" Value="15" />
+        <Setter Property="Margin" Value="17.5,7.5,0,0" />
+    </Style>
+
+    <!-- Flyout Header Tile -->
+
+    <SolidColorBrush x:Key="MouseOverFlyoutHeaderTileBrush" Color="#FF000096" />
+    <SolidColorBrush x:Key="DefaultFlyoutHeaderTileBrush" Color="#FF000030" />
+    <SolidColorBrush x:Key="DefaultFlyoutHeaderIconBrush" Color="#FF000000" />
+
+    <Style x:Key="FlyoutHeaderTile" TargetType="mah:Tile" BasedOn="{StaticResource BaseTile}">
+        <Setter Property="Margin" Value="0,0,0,0"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="Width" Value="260" />
+        <Setter Property="Background" Value="{StaticResource DefaultFlyoutHeaderTileBrush}" />
+    </Style>
+
+    <Style x:Key="FlyoutHeaderArrow" TargetType="iconPacks:PackIconEntypo" BasedOn="{StaticResource BaseEntypoTileIcon}">
+        <Setter Property="Width" Value="40" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="Margin" Value="5,5,0,0" />
+        <Setter Property="Kind" Value="ChevronWithCircleLeft" />
+    </Style>
+
+    <Style x:Key="FlyoutHeaderIcon" TargetType="iconPacks:PackIconModern" BasedOn="{StaticResource BaseTileIcon}">
+        <Setter Property="Width" Value="50" />
+        <Setter Property="Height" Value="50" />
+        <Setter Property="Padding" Value="12.5" />
+        <Setter Property="Margin" Value="50,0,0,0" />
+        <Setter Property="Background" Value="{StaticResource DefaultFlyoutHeaderIconBrush}" />
+    </Style>
+
+    <Style x:Key="FlyoutHeaderTextblock" TargetType="TextBlock" BasedOn="{StaticResource BaseTileTextBlock}">
+        <Setter Property="Margin" Value="110,0,0,0" />
+    </Style>
+
+    <!-- Main Grid Tab Tile -->
+
+    <SolidColorBrush x:Key="MouseOverMainGridTabTileBrush" Color="#FF888800" />
+    <SolidColorBrush x:Key="DefaultMainGridTabTileBrush" Color="#FF404000" />
+    <Style x:Key="MainGridTabTile" TargetType="mah:Tile" BasedOn="{StaticResource BaseTile}">
+        <Setter Property="Width" Value="200" />
+        <Setter Property="Background" Value="{StaticResource DefaultMainGridTabTileBrush}" />
+    </Style>
+    <Style x:Key="MainGridTabIcon" TargetType="iconPacks:PackIconModern" BasedOn="{StaticResource BaseTileIcon}" />
+    <Style x:Key="MainGridTabTextblock" TargetType="TextBlock" BasedOn="{StaticResource BaseTileTextBlock}" />
+
+    <!-- Database Tab Tile -->
+
+    <SolidColorBrush x:Key="MouseOverDatabaseTabTileBrush" Color="#FF963E00" />
+    <SolidColorBrush x:Key="DefaultDatabaseTabTileBrush" Color="#FF962D00" />
+    <Style x:Key="DatabaseTabTile" TargetType="mah:Tile" BasedOn="{StaticResource BaseTile}">
+        <Setter Property="Width" Value="200" />
+        <Setter Property="Background" Value="{StaticResource DefaultDatabaseTabTileBrush}" />
+    </Style>
+    <Style x:Key="DatabaseTabIcon" TargetType="iconPacks:PackIconModern" BasedOn="{StaticResource BaseTileIcon}"/>
+    <Style x:Key="DatabaseTabTextblock" TargetType="TextBlock" BasedOn="{StaticResource BaseTileTextBlock}"/>
+
+    <!-- Options Tab Tile -->
+
+    <SolidColorBrush x:Key="MouseOverOptionsTabTileBrush" Color="#FF009600" />
+    <SolidColorBrush x:Key="DefaultOptionsTabTileBrush" Color="#FF003A00" />
+    <Style x:Key="OptionsTabTile" TargetType="mah:Tile" BasedOn="{StaticResource BaseTile}">
+        <Setter Property="Width" Value="200" />
+        <Setter Property="Background" Value="{StaticResource DefaultOptionsTabTileBrush}" />
+    </Style>
+    <Style x:Key="OptionsTabIcon" TargetType="iconPacks:PackIconModern" BasedOn="{StaticResource BaseTileIcon}" />
+    <Style x:Key="OptionsTabTextblock" TargetType="TextBlock" BasedOn="{StaticResource BaseTileTextBlock}" />
+
+    <!-- Context Menu Tiles -->
+
+    <SolidColorBrush x:Key="MouseOverContextMenuItemTileBrush" Color="#FF000096" />
+    <SolidColorBrush x:Key="DefaultContextMenuItemTileBrush" Color="#FF000040" />
+    <SolidColorBrush x:Key="DefaultContextMenuStackPanelBtush" Color="#FF000000" />
+
+    <Style x:Key="ContextMenuItemTile" TargetType="mah:Tile" BasedOn="{StaticResource BaseTile}">
+        <Setter Property="Width" Value="200" />
+        <Setter Property="Height" Value="30" />
+        <Setter Property="Background" Value="{StaticResource DefaultContextMenuItemTileBrush}" />
+        <Setter Property="Margin" Value="2,2,2,2" />
+        <Setter Property="FontSize" Value="12" />
+    </Style>
+
+    <Style x:Key="ContextMenuItemIcon" TargetType="iconPacks:PackIconModern" BasedOn="{StaticResource BaseTileIcon}">
+        <Setter Property="Width" Value="15" />
+        <Setter Property="Height" Value="15" />
+        <Setter Property="Margin" Value="7.5,7.5,0,0" />
+    </Style>
+
+    <Style x:Key="ContextMenuItemTextblock" TargetType="TextBlock" BasedOn="{StaticResource BaseTileTextBlock}">
+        <Setter Property="Margin" Value="30,0,0,0" />
+    </Style>
+
+    <Style x:Key="ContextMenuStackPanel" TargetType="StackPanel">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Margin" Value="0,0,0,0" />
+        <Setter Property="Orientation" Value="Vertical" />
+        <Setter Property="Background" Value="{StaticResource DefaultContextMenuStackPanelBtush}" />
+    </Style>
+
+    <DataTemplate x:Key="TilesMenuOptionTileDataTemplate">
+        <Grid>
+            <iconPacks:PackIconModern Kind="{Binding Icon, RelativeSource={RelativeSource FindAncestor, 
+                AncestorType={x:Type controls:TilesMenuOption}}}" Style="{StaticResource BaseTileIcon}" />
+            <TextBlock Text="{Binding Description, RelativeSource={RelativeSource FindAncestor, 
+                AncestorType={x:Type controls:TilesMenuOption}}}" Style="{StaticResource BaseTileTextBlock}" />
+        </Grid>
+    </DataTemplate>
+
+    <!--#endregion-->
+
+</ResourceDictionary>

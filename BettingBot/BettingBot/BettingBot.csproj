@@ -1,0 +1,426 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AAD0F9B6-A92F-4347-94A3-536ECABA0D0B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BettingBot</RootNamespace>
+    <AssemblyName>BettingBot</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.1.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.1\lib\BouncyCastle.Crypto.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ControlzEx, Version=3.0.2.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\ControlzEx.dll</HintPath>
+    </Reference>
+    <Reference Include="Costura, Version=1.6.2.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
+      <HintPath>..\packages\Costura.Fody.1.6.2\lib\dotnet\Costura.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DomainParser.Library, Version=1.0.25.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\domainname-parser.1.0.25\lib\net40\DomainParser.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.7.2.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.7.2\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=1.6.1.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.6.1\lib\net45\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks, Version=2.2.0.12, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.2.2.0\lib\net46\MahApps.Metro.IconPacks.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="MoreLinq, Version=2.10.21623.0, Culture=neutral, PublicKeyToken=384d532d7e88985d, processorArchitecture=MSIL">
+      <HintPath>..\packages\morelinq.2.10.0\lib\net40\MoreLinq.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.5.11\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net46\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.108.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.108.0\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.108.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.108.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.108.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.108.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Controls.Input.Toolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Infragistics.Themes.MetroDark.Wpf.1.0.0\lib\net40\System.Windows.Controls.Input.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Layout.Toolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Infragistics.Themes.MetroDark.Wpf.1.0.0\lib\net40\System.Windows.Controls.Layout.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WebDriver, Version=3.14.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.3.14.0\lib\net45\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.Support, Version=3.11.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.3.11.0\lib\net45\WebDriver.Support.dll</HintPath>
+    </Reference>
+    <Reference Include="websocket-sharp, Version=1.0.1.0, Culture=neutral, PublicKeyToken=5660b08a1845a91e, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebSocketSharp-netstandard.1.0.1\lib\net45\websocket-sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WPFToolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Infragistics.Themes.MetroDark.Wpf.1.0.0\lib\net40\WPFToolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Common\AutomapperConfiguration.cs" />
+    <Compile Include="Source\Common\UtilityClasses\ActionStatus.cs" />
+    <Compile Include="Source\Common\UtilityClasses\ApiFlag.cs" />
+    <Compile Include="Source\Common\UtilityClasses\ApiFlags.cs" />
+    <Compile Include="Source\Common\UtilityClasses\ContextMenu.cs" />
+    <Compile Include="Source\Common\UtilityClasses\ContextMenuItem.cs" />
+    <Compile Include="Source\Common\UtilityClasses\ContextMenusManager.cs" />
+    <Compile Include="Source\Common\UtilityClasses\EventHelper.cs" />
+    <Compile Include="Source\Common\UtilityClasses\ExtendedTime.cs" />
+    <Compile Include="Source\Common\UtilityClasses\Logger.cs" />
+    <Compile Include="Source\Common\UtilityClasses\Parameter.cs" />
+    <Compile Include="Source\Common\UtilityClasses\Parameters.cs" />
+    <Compile Include="Source\Controls\TilesMenu.xaml.cs">
+      <DependentUpon>TilesMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Controls\TilesMenuOption.xaml.cs">
+      <DependentUpon>TilesMenuOption.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Controls\TilesMenuOptions.cs" />
+    <Compile Include="Source\Controls\UserControlWithNotifyProperty.cs" />
+    <Compile Include="Source\WIndows\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Clients\Agility\AgilityRestManager.cs" />
+    <Compile Include="Source\Clients\Agility\Betshoot\BetshootException.cs" />
+    <Compile Include="Source\Clients\Agility\Betshoot\Responses\BetResponse.cs" />
+    <Compile Include="Source\Clients\Agility\Betshoot\Responses\BetshootResponse.cs" />
+    <Compile Include="Source\Clients\Agility\Betshoot\Responses\BetsResponse.cs" />
+    <Compile Include="Source\Clients\Api\ApiAuthenticatedRequest.cs" />
+    <Compile Include="Source\Clients\Api\ApiClient.cs" />
+    <Compile Include="Source\Clients\Api\FootballData\FootballDataAuthenticatedRequest.cs" />
+    <Compile Include="Source\Clients\Api\FootballData\FootballDataClient.cs" />
+    <Compile Include="Source\Clients\Api\FootballData\FootballDataException.cs" />
+    <Compile Include="Source\Clients\Api\FootballData\Responses\CompetitionResponse.cs" />
+    <Compile Include="Source\Clients\Api\FootballData\Responses\CompetitionsResponse.cs" />
+    <Compile Include="Source\Clients\Api\FootballData\Responses\FixtureResponse.cs" />
+    <Compile Include="Source\Clients\Api\FootballData\Responses\FixturesResponse.cs" />
+    <Compile Include="Source\Clients\Api\FootballData\Responses\FootballDataResponse.cs" />
+    <Compile Include="Source\Clients\Api\FootballData\Responses\TeamResponse.cs" />
+    <Compile Include="Source\Clients\Api\FootballData\Responses\TeamsResponse.cs" />
+    <Compile Include="Source\Clients\Responses\PickResponse.cs" />
+    <Compile Include="Source\Clients\Agility\Betshoot\Responses\TipsterAddressResponse.cs" />
+    <Compile Include="Source\Clients\Agility\Betshoot\Responses\TipsterResponse.cs" />
+    <Compile Include="Source\Clients\Selenium\Asianodds\AsianoddsException.cs" />
+    <Compile Include="Source\Clients\Selenium\Asianodds\AsianoddsSeleniumDriverManager.cs" />
+    <Compile Include="Source\Clients\Selenium\Asianodds\Requests\BetRequest.cs" />
+    <Compile Include="Source\Clients\Selenium\Asianodds\Responses\AsianoddsResponse.cs" />
+    <Compile Include="Source\Clients\Selenium\Asianodds\Responses\BetResponse.cs" />
+    <Compile Include="Source\Clients\Selenium\Asianodds\Responses\BetsResponse.cs" />
+    <Compile Include="Source\Clients\Selenium\Hintwise\HintwiseException.cs" />
+    <Compile Include="Source\Clients\Selenium\Hintwise\HintwiseSeleniumDriverManager.cs" />
+    <Compile Include="Source\Clients\Selenium\Hintwise\Responses\BetResponse.cs" />
+    <Compile Include="Source\Clients\Selenium\Hintwise\Responses\BetsResponse.cs" />
+    <Compile Include="Source\Clients\Selenium\Hintwise\Responses\HintwiseResponse.cs" />
+    <Compile Include="Source\Converters\DisciplineConverter.cs" />
+    <Compile Include="Source\Converters\LeagueConverter.cs" />
+    <Compile Include="Source\Converters\TeamConverter.cs" />
+    <Compile Include="Source\DbContext\Models\DbLeagueAlternateName.cs" />
+    <Compile Include="Source\DbContext\Models\DbLocalizedString.cs" />
+    <Compile Include="Source\LocalizationManager.cs" />
+    <Compile Include="Source\Models\MatchResult.cs" />
+    <Compile Include="Source\Clients\Selenium\Hintwise\Responses\TipsterAddressResponse.cs" />
+    <Compile Include="Source\Clients\Selenium\Hintwise\Responses\TipsterResponse.cs" />
+    <Compile Include="Source\Converters\BetConverter.cs" />
+    <Compile Include="Source\Clients\Client.cs" />
+    <Compile Include="Source\Clients\Agility\AgilityClient.cs" />
+    <Compile Include="Source\Clients\ClientException.cs" />
+    <Compile Include="Source\Clients\Selenium\IAuthenticable.cs" />
+    <Compile Include="Source\Clients\ResponseBase.cs" />
+    <Compile Include="Source\Converters\LoginConverter.cs" />
+    <Compile Include="Source\Converters\TipsterConverter.cs" />
+    <Compile Include="Source\Converters\WebsiteConverter.cs" />
+    <Compile Include="Source\DataManager.cs" />
+    <Compile Include="Source\DbContext\Models\DbDiscipline.cs" />
+    <Compile Include="Source\DbContext\Models\DbLeague.cs" />
+    <Compile Include="Source\DbContext\Models\DbMatch.cs" />
+    <Compile Include="Source\DbContext\Models\DbTeam.cs" />
+    <Compile Include="Source\DbContext\Models\DbTeamAlternateName.cs" />
+    <Compile Include="Source\InformationSender.cs" />
+    <Compile Include="Source\Converters\MatchConverter.cs" />
+    <Compile Include="Source\Converters\PickConverter.cs" />
+    <Compile Include="Source\ViewModels\BetToAssociateGvVM.cs" />
+    <Compile Include="Source\ViewModels\Collections\AggregatedWinLoseStatisticsGvVM.cs" />
+    <Compile Include="Source\DbContext\Models\DbBet.cs" />
+    <Compile Include="Source\BettingSystem.cs" />
+    <Compile Include="Source\ViewModels\BaseVM.cs" />
+    <Compile Include="Source\ViewModels\AggregatedWinLoseStatisticGvVM.cs" />
+    <Compile Include="Source\ViewModels\BetToDisplayGvVM.cs" />
+    <Compile Include="Source\Common\UtilityClasses\BrowserSession.cs" />
+    <Compile Include="Source\Common\UtilityClasses\ClipboardWrapper.cs" />
+    <Compile Include="Source\ViewModels\SentBetGvVM.cs" />
+    <Compile Include="Source\Common\UtilityClasses\CustomList.cs" />
+    <Compile Include="Source\Common\UtilityClasses\CustomNameValueCollection.cs" />
+    <Compile Include="Source\DataFilter.cs" />
+    <Compile Include="Source\Clients\Agility\Betshoot\BetshootClient.cs" />
+    <Compile Include="Source\Common\UtilityClasses\DdlItem.cs" />
+    <Compile Include="Source\Common\Extensions.cs" />
+    <Compile Include="Source\Clients\Selenium\Hintwise\HintwiseClient.cs" />
+    <Compile Include="Source\ViewModels\Collections\GeneralStatisticsGvVM.cs" />
+    <Compile Include="Source\Common\Helpers.cs" />
+    <Compile Include="Source\Clients\Selenium\SeleniumClient.cs" />
+    <Compile Include="Source\DbContext\LocalDbContext.cs" />
+    <Compile Include="Source\Common\UtilityClasses\CustomMenuItem.cs" />
+    <Compile Include="Source\DbContext\Models\DbOption.cs" />
+    <Compile Include="Source\DbContext\Models\DbPick.cs" />
+    <Compile Include="Source\ViewModels\GeneralStatisticGvVM.cs" />
+    <Compile Include="Source\Common\UtilityClasses\INotifyPropertyChangedUtils.cs" />
+    <Compile Include="Source\ViewModels\Collections\ProfitByPeriodStatisticsGvVM.cs" />
+    <Compile Include="Source\Clients\Selenium\SeleniumDriverManager.cs" />
+    <Compile Include="Source\Clients\Selenium\Asianodds\AsianOddsClient.cs" />
+    <Compile Include="Source\Clients\Selenium\Cloudbet\CloudBetClient.cs" />
+    <Compile Include="Source\DbContext\Models\DbTipster.cs" />
+    <Compile Include="Source\ViewModels\MatchToAssociateGvVM.cs" />
+    <Compile Include="Source\ViewModels\ProfitByPeriodStatisticGvVM.cs" />
+    <Compile Include="Source\ViewModels\TipsterGvVM.cs" />
+    <Compile Include="Source\Common\Utilities.cs" />
+    <Compile Include="Source\Common\UtilityClasses\RepCounter.cs" />
+    <Compile Include="Source\StakingManager.cs" />
+    <Compile Include="Source\DbContext\Models\DbLogin.cs" />
+    <Compile Include="Source\ViewModels\LoginGvVM.cs" />
+    <Compile Include="Source\Common\UtilityClasses\ViewState.cs" />
+    <Compile Include="Source\DbContext\Models\DbWebsite.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Source\ViewModels\WebsiteGvVM.cs" />
+    <Compile Include="Themes\DarkBlend\LeftMarginMultiplierConverter.cs" />
+    <Compile Include="Themes\DarkBlend\TreeViewItemExtensions.cs" />
+    <Page Include="Source\Controls\TilesMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Source\Controls\TilesMenuOption.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Source\WIndows\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\CustomStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\DarkBlend\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Resources\NotifyIcon.png" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Data\database.sqlite">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Icon.ico" />
+    <Resource Include="Resources\Icons\Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FodyWeavers.xml" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <UsingTask TaskName="CosturaCleanup" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll" TaskFactory="CodeTaskFactory">
+    <ParameterGroup>
+      <Config Output="false" Required="true" ParameterType="Microsoft.Build.Framework.ITaskItem" />
+      <Files Output="false" Required="true" ParameterType="Microsoft.Build.Framework.ITaskItem[]" />
+    </ParameterGroup>
+    <Task Evaluate="true">
+      <Reference xmlns="http://schemas.microsoft.com/developer/msbuild/2003" Include="System.Xml" />
+      <Reference xmlns="http://schemas.microsoft.com/developer/msbuild/2003" Include="System.Xml.Linq" />
+      <Using xmlns="http://schemas.microsoft.com/developer/msbuild/2003" Namespace="System" />
+      <Using xmlns="http://schemas.microsoft.com/developer/msbuild/2003" Namespace="System.IO" />
+      <Using xmlns="http://schemas.microsoft.com/developer/msbuild/2003" Namespace="System.Xml.Linq" />
+      <Code xmlns="http://schemas.microsoft.com/developer/msbuild/2003" Type="Fragment" Language="cs"><![CDATA[
+var config = XElement.Load(Config.ItemSpec).Elements("Costura").FirstOrDefault();
+
+if (config == null) return true;
+
+var excludedAssemblies = new List<string>();
+var attribute = config.Attribute("ExcludeAssemblies");
+if (attribute != null)
+    foreach (var item in attribute.Value.Split('|').Select(x => x.Trim()).Where(x => x != string.Empty))
+        excludedAssemblies.Add(item);
+var element = config.Element("ExcludeAssemblies");
+if (element != null)
+    foreach (var item in element.Value.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim()).Where(x => x != string.Empty))
+        excludedAssemblies.Add(item);
+
+var filesToCleanup = Files.Select(f => f.ItemSpec).Where(f => !excludedAssemblies.Contains(Path.GetFileNameWithoutExtension(f), StringComparer.InvariantCultureIgnoreCase));
+
+foreach (var item in filesToCleanup)
+  File.Delete(item);
+]]></Code>
+    </Task>
+  </UsingTask>
+  <Target Name="CleanReferenceCopyLocalPaths" AfterTargets="AfterBuild;NonWinFodyTarget">
+    <CosturaCleanup Config="FodyWeavers.xml" Files="@(ReferenceCopyLocalPaths->'$(OutDir)%(DestinationSubDirectory)%(Filename)%(Extension)')" />
+  </Target>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Ten projekt zawiera odwołania do pakietów NuGet, których nie ma na tym komputerze. Użyj przywracania pakietów NuGet, aby je pobrać. Aby uzyskać więcej informacji, zobacz http://go.microsoft.com/fwlink/?LinkID=322105. Brakujący plik: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+    <Error Condition="!Exists('..\packages\Fody.2.4.6\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.2.4.6\build\Fody.targets'))" />
+    <Error Condition="!Exists('..\packages\Costura.Fody.1.6.2\build\dotnet\Costura.Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Costura.Fody.1.6.2\build\dotnet\Costura.Fody.targets'))" />
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.108.0\build\net46\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.108.0\build\net46\System.Data.SQLite.Core.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.ChromeDriver.2.41.0\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.ChromeDriver.2.41.0\build\Selenium.WebDriver.ChromeDriver.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.GeckoDriver.Win64.0.21.0\build\Selenium.WebDriver.GeckoDriver.Win64.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.GeckoDriver.Win64.0.21.0\build\Selenium.WebDriver.GeckoDriver.Win64.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Import Project="..\packages\Fody.2.4.6\build\Fody.targets" Condition="Exists('..\packages\Fody.2.4.6\build\Fody.targets')" />
+  <Import Project="..\packages\Costura.Fody.1.6.2\build\dotnet\Costura.Fody.targets" Condition="Exists('..\packages\Costura.Fody.1.6.2\build\dotnet\Costura.Fody.targets')" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.108.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.108.0\build\net46\System.Data.SQLite.Core.targets')" />
+  <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.2.41.0\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.2.41.0\build\Selenium.WebDriver.ChromeDriver.targets')" />
+  <Import Project="..\packages\Selenium.WebDriver.GeckoDriver.Win64.0.21.0\build\Selenium.WebDriver.GeckoDriver.Win64.targets" Condition="Exists('..\packages\Selenium.WebDriver.GeckoDriver.Win64.0.21.0\build\Selenium.WebDriver.GeckoDriver.Win64.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
